@@ -25,6 +25,12 @@ public class CourseServiceImpl implements CourseService
     }
 
     @Override
+    public Course findCourseById(Long courseid)
+    {
+        return courserepos.findById(courseid).orElseThrow(() -> new EntityNotFoundException(Long.toString(courseid)));
+    }
+
+    @Override
     public ArrayList<CountStudentsInCourses> getCountStudentsInCourse()
     {
         return courserepos.getCountStudentsInCourse();

@@ -9,6 +9,8 @@ public interface CourseService
 {
     ArrayList<Course> findAll();
 
+    Course findCourseById(Long courseid);
+
     ArrayList<CountStudentsInCourses> getCountStudentsInCourse();
 
     void delete(long id);
