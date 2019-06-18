@@ -1,9 +1,7 @@
 package com.lambdaschool.school.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lambdaschool.school.SchoolApplication;
 import com.lambdaschool.school.model.Course;
-import com.lambdaschool.school.model.Instructor;
 import com.lambdaschool.school.model.Student;
 import com.lambdaschool.school.repository.InstructorRepository;
 import org.junit.After;
@@ -16,12 +14,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.persistence.EntityNotFoundException;
 
-import java.util.ArrayList;
-import java.util.Optional;
-
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SchoolApplication.class)
@@ -66,7 +60,7 @@ public class CourseServiceImplTest
         assertEquals(5, courseService.findAll().size());
     }
 
-    @Test (expected = EntityNotFoundException.class)
+    @Test(expected = EntityNotFoundException.class)
     public void deleteNotFound()
     {
         courseService.delete(100);

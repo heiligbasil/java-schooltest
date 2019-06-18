@@ -3,7 +3,6 @@ package com.lambdaschool.school.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lambdaschool.school.model.Course;
-import com.lambdaschool.school.model.Instructor;
 import com.lambdaschool.school.repository.InstructorRepository;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.After;
@@ -15,10 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.util.ArrayList;
-
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.number.OrderingComparison.lessThan;
 
 @RunWith(SpringRunner.class)

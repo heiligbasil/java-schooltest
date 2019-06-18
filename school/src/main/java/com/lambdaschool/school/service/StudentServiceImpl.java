@@ -6,6 +6,7 @@ import com.lambdaschool.school.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 
 @Service(value = "studentService")
@@ -13,6 +14,12 @@ public class StudentServiceImpl implements StudentService
 {
     @Autowired
     private StudentRepository studrepos;
+
+    @Override
+    public Student findStudentById(Long studentid)
+    {
+        return studrepos.findById(studentid).orElseThrow(() -> new EntityNotFoundException(Long.toString(studentid)));
+    }
 
     @Override
     public Student save(Student student)

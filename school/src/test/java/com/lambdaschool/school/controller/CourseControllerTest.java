@@ -3,7 +3,6 @@ package com.lambdaschool.school.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lambdaschool.school.model.Course;
 import com.lambdaschool.school.model.Instructor;
-import com.lambdaschool.school.repository.CourseRepository;
 import com.lambdaschool.school.service.CourseService;
 import org.junit.After;
 import org.junit.Before;
@@ -22,7 +21,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -90,9 +88,7 @@ public class CourseControllerTest
 
         Mockito.when(courseService.save(any(Course.class))).thenReturn(makeCourse);
 
-        RequestBuilder requestBuilder = MockMvcRequestBuilders.post(apiUrl)
-                .contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON)
-                .content(constructedJson);
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.post(apiUrl).contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON).content(constructedJson);
 
         mockMvc.perform(requestBuilder).andExpect(status().isCreated()).andDo(MockMvcResultHandlers.print());
     }
