@@ -76,6 +76,11 @@ public class CourseControllerTest
     }
 
     @Test
+    public void addNewCourse()
+    {
+    }
+
+    @Test
     public void deleteCourseById()
     {
     }

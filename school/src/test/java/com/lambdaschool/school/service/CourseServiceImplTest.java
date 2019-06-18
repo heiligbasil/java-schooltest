@@ -60,4 +60,9 @@ public class CourseServiceImplTest
         courseService.delete(100);
         assertEquals(6, courseService.findAll().size());
     }
+
+    @Test
+    public void save()
+    {
+    }
 }
