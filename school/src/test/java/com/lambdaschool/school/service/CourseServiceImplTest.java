@@ -33,16 +33,9 @@ public class CourseServiceImplTest
     @Autowired
     private InstructorRepository instructorRepository;
 
-    private ArrayList<Course> courseList;
-
     @Before
     public void setUp() throws Exception
     {
-        courseList = new ArrayList<>();
-        courseList.add(new Course("Science", new Instructor("John")));
-        courseList.add(new Course("Social Studies", new Instructor("Chance")));
-        courseList.add(new Course("Mathematics", new Instructor("Patrick")));
-        courseList.add(new Course("English", new Instructor("Josh")));
     }
 
     @After
@@ -83,7 +76,6 @@ public class CourseServiceImplTest
     @Test
     public void save()
     {
-        //Optional<Instructor> instructor = instructorRepository.findById(1L)/*.findInstructorsByInstructnameEquals("John")*/;
         Course makeCourse = new Course("History", instructorRepository.findById(1L).get());
         makeCourse.getStudents().add(new Student("Suzy"));
 
